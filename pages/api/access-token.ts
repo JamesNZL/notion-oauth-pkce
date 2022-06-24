@@ -8,8 +8,12 @@ if (!process.env.NOTION_TOKEN_URL) {
   throw new Error("NOTION_TOKEN_URL env variable is not set");
 }
 
-if (!process.env.AUTH_TOKEN) {
-  throw new Error("AUTH_TOKEN env variable is not set");
+if (!process.env.CLIENT_ID) {
+  throw new Error("CLIENT_ID env variable is not set");
+}
+
+if (!process.env.CLIENT_SECRET) {
+  throw new Error("CLIENT_SECRET env variable is not set");
 }
 
 export default async function accessToken(
@@ -24,7 +28,7 @@ export default async function accessToken(
   const response = await fetch(`${process.env.NOTION_TOKEN_URL}`, {
     method: "POST",
     headers: {
-      Authorization: `Basic ${process.env.AUTH_TOKEN}`,
+      Authorization: `Basic ${Buffer.from(`${process.env.CLIENT_ID}:${process.env.CLIENT_SECRET}`).toString('base64')}`,
       "Content-Type": "application/json",
     },
     body: JSON.stringify({

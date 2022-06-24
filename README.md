@@ -13,7 +13,8 @@ Create an .env.local file using the environment variables from the .env.template
 Here is an example using [Raycast](https://www.raycast.com) as the client:
 
 ```
-AUTH_TOKEN=Notion Base64 Basic Auth Token
+CLIENT_ID=Notion OAuth Client ID
+CLIENT_SECRET=Notion OAuth Client Secret
 CLIENT_REDIRECT_URL=https://www.raycast.com/redirect?packageName=Extension
 PROXY_REDIRECT_URL=https://your-proxy-domain/api/code
 NOTION_AUTHORIZE_URL=https://api.notion.com/v1/oauth/authorize
