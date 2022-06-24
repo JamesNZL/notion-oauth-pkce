@@ -1,4 +1,4 @@
-import type { NextPage } from "next";
+import type { NextPage } from 'next';
 
 const Home: NextPage = () => {
   return (
@@ -6,14 +6,5 @@ const Home: NextPage = () => {
     </div>
   );
 };
-
-export async function getStaticProps() {
-  return {
-    redirect: {
-      destination: 'https://github.com/JamesNZL',
-      permanent: false,
-    }
-  };
-}
 
 export default Home;
