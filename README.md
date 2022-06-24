@@ -2,9 +2,9 @@
 
 This is a Notion OAuth PKCE proxy build with [Next.js](https://nextjs.org).
 
-We have built this for [Hypersonic Raycast App](https://hypersonic.run), a Notion to-do app for Raycast.  Currently Notion API does not support PKCE entirely, so the only solution to use oAuth with your app is using a proxy like this.
+Currently Notion API does not support PKCE entirely, so the only solution to use oAuth with your app is using a proxy like this.
 
-The proxy server has been tested with our own app but it may need some tweaks to adapt it to your use case so use it as an starting point.
+The proxy server has been designed to follow this auth flow detailed [on this page](https://jamesnzl.notion.site/notion-assignment-import-c3a8c6f233de439e8f5e903826e78bd9). It may need some tweaks to adapt it to your use case so use it as an starting point.
 
 ## Configuration
 
@@ -19,6 +19,7 @@ CLIENT_REDIRECT_URL=https://www.raycast.com/redirect?packageName=Extension
 PROXY_REDIRECT_URL=https://your-proxy-domain/api/code
 NOTION_AUTHORIZE_URL=https://api.notion.com/v1/oauth/authorize
 NOTION_TOKEN_URL=https://api.notion.com/v1/oauth/token
+REDIRECT_URIS=https://elbkjcjgakaoccocmbglokgmalkoacie.chromiumapp.org/oauth, https://7e9f954a96941fe75f6a7ebc65e530350aafaf53.extensions.allizom.org/oauth
 ```
 
 ## Run locally
