@@ -16,6 +16,8 @@ if (!process.env.CLIENT_SECRET) {
   throw new Error('CLIENT_SECRET env variable is not set');
 }
 
+const AUTHORISATION_CREDENTIAL = Buffer.from(`${process.env.CLIENT_ID}:${process.env.CLIENT_SECRET}`).toString('base64');
+
 export default async function accessToken(
   req: NextApiRequest,
   res: NextApiResponse,
@@ -28,8 +30,8 @@ export default async function accessToken(
   const response = await fetch(`${process.env.NOTION_TOKEN_URL}`, {
     method: 'POST',
     headers: {
-      Authorization: `Basic ${Buffer.from(`${process.env.CLIENT_ID}:${process.env.CLIENT_SECRET}`).toString('base64')}`,
       'Content-Type': 'application/json',
+      Authorization: `Basic ${AUTHORISATION_CREDENTIAL}`,
     },
     body: JSON.stringify({
       grant_type: grant,
