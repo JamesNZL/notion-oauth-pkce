@@ -1,11 +1,11 @@
-import type { NextApiRequest, NextApiResponse } from "next";
+import type { NextApiRequest, NextApiResponse } from 'next';
 
 if (!process.env.PROXY_REDIRECT_URL) {
-  throw new Error("PROXY_REDIRECT_URL env variable is not set");
+  throw new Error('PROXY_REDIRECT_URL env variable is not set');
 }
 
 if (!process.env.NOTION_AUTHORIZE_URL) {
-  throw new Error("NOTION_AUTHORIZE_URL env variable is not set");
+  throw new Error('NOTION_AUTHORIZE_URL env variable is not set');
 }
 
 export default function authorize(req: NextApiRequest, res: NextApiResponse) {

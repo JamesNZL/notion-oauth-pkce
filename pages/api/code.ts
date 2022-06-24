@@ -1,7 +1,7 @@
-import type { NextApiRequest, NextApiResponse } from "next";
+import type { NextApiRequest, NextApiResponse } from 'next';
 
 if (!process.env.CLIENT_REDIRECT_URL) {
-  throw new Error("CLIENT_REDIRECT_URL env variable is not set");
+  throw new Error('CLIENT_REDIRECT_URL env variable is not set');
 }
 
 export default function code(req: NextApiRequest, res: NextApiResponse) {
