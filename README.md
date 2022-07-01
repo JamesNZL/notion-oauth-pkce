@@ -1,26 +1,28 @@
 ## Notion OAuth PKCE Proxy
 
-This is a Notion OAuth PKCE proxy build with [Next.js](https://nextjs.org).
+This is a Notion OAuth PKCE proxy built with [Next.js](https://nextjs.org).
 
-Currently Notion API does not support PKCE entirely, so the only solution to use oAuth with your app is using a proxy like this.
+Currently, the Notion API does not support PKCE entirely, so the only solution to use OAuth with your app is using a proxy like this.
 
-The proxy server has been designed to follow this auth flow detailed [on this page](https://jamesnzl.notion.site/notion-assignment-import-c3a8c6f233de439e8f5e903826e78bd9). It may need some tweaks to adapt it to your use case so use it as an starting point.
+The proxy server has been designed to follow the auth flow detailed [on this page](https://jamesnzl.notion.site/notion-assignment-import-c3a8c6f233de439e8f5e903826e78bd9). It may need some tweaks to adapt it to your use case, so use it as an starting point.
 
 ## Configuration
 
-Create an .env.local file using the environment variables from the .env.template and fill the values with your own ones.
+Create an `.env.local` file using the environment variables from the `.env.template` and fill in your own values.
 
-Here is an example using [Raycast](https://www.raycast.com) as the client:
+Here is an example using [Notion Assignment Import](https://github.com/JamesNZL/notion-assignment-import) as the client:
 
 ```
 CLIENT_ID=Notion OAuth Client ID
 CLIENT_SECRET=Notion OAuth Client Secret
-CLIENT_REDIRECT_URL=https://www.raycast.com/redirect?packageName=Extension
-PROXY_REDIRECT_URL=https://your-proxy-domain/api/code
+PROXY_REDIRECT_URL=https://oauth.jamesnzl.xyz/api/notion/code
+CLIENT_REDIRECT_URL=https://oauth.jamesnzl.xyz/api/notion/access-token
 NOTION_AUTHORIZE_URL=https://api.notion.com/v1/oauth/authorize
 NOTION_TOKEN_URL=https://api.notion.com/v1/oauth/token
 REDIRECT_URIS=https://elbkjcjgakaoccocmbglokgmalkoacie.chromiumapp.org/oauth, https://7e9f954a96941fe75f6a7ebc65e530350aafaf53.extensions.allizom.org/oauth
 ```
+
+> The `redirect_uri` of your app, to which to send the temporary `code` grant, must be defined in `REDIRECT_URIS`. This is a `, ` delimited list, to accomodate use cases where your app may have a number of different redirect URLs.
 
 ## Run locally
 
