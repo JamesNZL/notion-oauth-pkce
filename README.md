@@ -22,7 +22,9 @@ NOTION_TOKEN_URL=https://api.notion.com/v1/oauth/token
 REDIRECT_URIS=https://elbkjcjgakaoccocmbglokgmalkoacie.chromiumapp.org/oauth, https://7e9f954a96941fe75f6a7ebc65e530350aafaf53.extensions.allizom.org/oauth
 ```
 
-> The `redirect_uri` of your app, to which to send the temporary `code` grant, must be defined in `REDIRECT_URIS`. This is a `, ` delimited list, to accomodate use cases where your app may have a number of different redirect URLs.
+> The `redirect_uri` of your app, to which to send the temporary `code` grant, must be prelimiarily registered in `REDIRECT_URIS` to [prevent open redirector attacks](https://www.oauth.com/oauth2-servers/redirect-uris/redirect-uri-registration/).  
+> This is a `, ` delimited list, to accomodate use cases where your app may have a number of different redirect URLs.  
+> The `redirect_uri` must be entered exactly as it will be passed to `/api/notion/authorise`, and does not support pattern matching for security reasons.
 
 ## Run locally
 
