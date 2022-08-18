@@ -21,7 +21,7 @@ export default function authorise(req: NextApiRequest, res: NextApiResponse) {
 
   const ALLOWED_REDIRECT_URIS = process.env.REDIRECT_URIS.split(', ');
 
-  const proxyRedirectUri = (ALLOWED_REDIRECT_URIS.includes(query.redirect_uri?.toString()))
+  const proxyRedirectUri = (typeof query.redirect_uri === 'string' && ALLOWED_REDIRECT_URIS.includes(query.redirect_uri.toString()))
     ? process.env.PROXY_REDIRECT_URL
     : 'null';
 
@@ -37,4 +37,4 @@ export default function authorise(req: NextApiRequest, res: NextApiResponse) {
     });
 
   res.redirect(authorisationUrl);
-};
+}
