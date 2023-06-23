@@ -46,4 +46,4 @@ The easiest way to deploy the proxy is using [Vercel](https://vercel.com) from t
 
 ## Licence
 
-The source code of this repository is licenced under MIT.
+The source code of this repository is licensed under MIT.
